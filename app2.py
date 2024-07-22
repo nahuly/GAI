@@ -85,10 +85,10 @@ questions = [
     {
         "question": "어떤 종류의 친구와 가장 가까운가요?",
         "options": [
-            "용기 있는 친구 (그리핀도르)",
-            "야망 있는 친구 (슬리데린)",
-            "친절한 친구 (후플푸프)",
-            "지혜로운 친구 (래번클로)"
+            "용기 있는 친구",
+            "야망 있는 친구",
+            "친절한 친구",
+            "지혜로운 친구"
         ],
         "points": ["그리핀도르", "슬리데린", "후플푸프", "래번클로"]
     },
@@ -129,10 +129,10 @@ def main():
         
         st.write(descriptions[result])
 
-        st.write("## 상세 결과")
-        for house in ["그리핀도르", "슬리데린", "후플푸프", "래번클로"]:
-            count = answers.count(house)
-            st.write(f"{house}: {count}문항")
+        # st.write("## 상세 결과")
+        # for house in ["그리핀도르", "슬리데린", "후플푸프", "래번클로"]:
+        #     count = answers.count(house)
+        #     st.write(f"{house}: {count}문항")
 
 if __name__ == "__main__":
     main()
