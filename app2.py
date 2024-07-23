@@ -173,7 +173,7 @@ def show_harry_potter_result():
     result = Counter(st.session_state.answers).most_common(1)[0][0]
     
     st.write("## 당신의 호그와트 기숙사는...")
-    st.image(house_logos[result], width=150)
+    st.image(house_logos[result], width=600)
     st.write(f"# {result}입니다!")
 
     descriptions = {
