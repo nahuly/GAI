@@ -112,6 +112,9 @@ house_logos = {
     "래번클로": "ravenclaw.png"
 }
 
+# 메인화면 이미지
+main_logo = "hogwarts.png"
+
 def main():
     st.title("다양한 심리 테스트")
 
@@ -127,6 +130,7 @@ def main():
 
     if st.session_state.current_test is None:
         st.write("아래 버튼 중 하나를 선택하여 심리 테스트를 시작하세요.")
+        st.image(main_logo, width=600)
         col1, col2, col3 = st.columns(3)
         with col1:
             if st.button("해리포터 기숙사 심리테스트"):
