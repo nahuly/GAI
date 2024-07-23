@@ -105,34 +105,86 @@ questions = [
 ]
 
 def main():
-    st.title("호그와트 기숙사 배정 테스트")
-    st.write("각 질문에 대해 가장 적합한 답변을 선택해주세요.")
+    st.title("다양한 심리 테스트")
 
-    answers = []
+    # 세션 상태 초기화
+    if 'current_test' not in st.session_state:
+        st.session_state.current_test = None
+    if 'test_started' not in st.session_state:
+        st.session_state.test_started = False
+    if 'current_question' not in st.session_state:
+        st.session_state.current_question = 0
+    if 'answers' not in st.session_state:
+        st.session_state.answers = []
 
-    for i, q in enumerate(questions, 1):
-        answer = st.radio(f"{i}. {q['question']}", q['options'])
-        answers.append(q['points'][q['options'].index(answer)])
+    if st.session_state.current_test is None:
+        st.write("아래 버튼 중 하나를 선택하여 심리 테스트를 시작하세요.")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if st.button("해리포터 기숙사 심리테스트"):
+                st.session_state.current_test = "해리포터"
+                st.experimental_rerun()
+        with col2:
+            if st.button("다른 심리테스트 1"):
+                st.write("준비 중입니다.")
+        with col3:
+            if st.button("다른 심리테스트 2"):
+                st.write("준비 중입니다.")
+    elif st.session_state.current_test == "해리포터":
+        run_harry_potter_test()
 
-    if st.button('결과 보기'):
-        result = Counter(answers).most_common(1)[0][0]
+def run_harry_potter_test():
+    if not st.session_state.test_started:
+        st.write("## 호그와트 기숙사 배정 테스트")
+        st.write("호그와트 기숙사 배정 모자가 당신의 기숙사를 정해줄 것입니다.")
+        if st.button("테스트 시작하기"):
+            st.session_state.test_started = True
+            st.session_state.current_question = 0
+            st.session_state.answers = []
+            st.experimental_rerun()
+    elif st.session_state.current_question < len(questions):
+        q = questions[st.session_state.current_question]
+        answer = st.radio(f"{st.session_state.current_question + 1}. {q['question']}", q['options'])
         
-        st.write("## 당신의 호그와트 기숙사는...")
-        st.write(f"# {result}입니다!")
+        if st.button("다음" if st.session_state.current_question < len(questions) - 1 else "결과 보기"):
+            st.session_state.answers.append(q['points'][q['options'].index(answer)])
+            st.session_state.current_question += 1
+            st.experimental_rerun()
+    else:
+        show_harry_potter_result()
 
-        descriptions = {
-            "그리핀도르": "용기와 대담함, 기사도 정신을 가진 당신! 그리핀도르에 어울립니다.",
-            "슬리데린": "야망과 교활함, 지략을 가진 당신! 슬리데린에 어울립니다.",
-            "후플푸프": "성실함과 공정함, 인내심을 가진 당신! 후플푸프에 어울립니다.",
-            "래번클로": "지혜와 창의성, 학구열을 가진 당신! 래번클로에 어울립니다."
-        }
-        
-        st.write(descriptions[result])
+def show_harry_potter_result():
+    result = Counter(st.session_state.answers).most_common(1)[0][0]
+    
+    st.write("## 당신의 호그와트 기숙사는...")
+    st.write(f"# {result}입니다!")
 
-        # st.write("## 상세 결과")
-        # for house in ["그리핀도르", "슬리데린", "후플푸프", "래번클로"]:
-        #     count = answers.count(house)
-        #     st.write(f"{house}: {count}문항")
+    descriptions = {
+        "그리핀도르": "용기와 대담함, 기사도 정신을 가진 당신! 그리핀도르에 어울립니다.",
+        "슬리데린": "야망과 교활함, 지략을 가진 당신! 슬리데린에 어울립니다.",
+        "후플푸프": "성실함과 공정함, 인내심을 가진 당신! 후플푸프에 어울립니다.",
+        "래번클로": "지혜와 창의성, 학구열을 가진 당신! 래번클로에 어울립니다."
+    }
+    
+    st.write(descriptions[result])
+
+    st.write("## 상세 결과")
+    for house in ["그리핀도르", "슬리데린", "후플푸프", "래번클로"]:
+        count = st.session_state.answers.count(house)
+        st.write(f"{house}: {count}문항")
+
+    if st.button("테스트 다시 하기"):
+        st.session_state.test_started = False
+        st.session_state.current_question = 0
+        st.session_state.answers = []
+        st.experimental_rerun()
+    
+    if st.button("메인 화면으로 돌아가기"):
+        st.session_state.current_test = None
+        st.session_state.test_started = False
+        st.session_state.current_question = 0
+        st.session_state.answers = []
+        st.experimental_rerun()
 
 if __name__ == "__main__":
     main()
