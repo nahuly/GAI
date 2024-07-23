@@ -104,6 +104,14 @@ questions = [
     }
 ]
 
+# 각 기숙사의 로고 이미지
+house_logos = {
+    "그리핀도르": "gryffindor.png",
+    "슬리데린": "slytherin.png",
+    "후플푸프": "hufflepuff.png",
+    "래번클로": "ravenclaw.png"
+}
+
 def main():
     st.title("다양한 심리 테스트")
 
@@ -157,6 +165,7 @@ def show_harry_potter_result():
     result = Counter(st.session_state.answers).most_common(1)[0][0]
     
     st.write("## 당신의 호그와트 기숙사는...")
+    st.image(house_logos[result], width=150)
     st.write(f"# {result}입니다!")
 
     descriptions = {
