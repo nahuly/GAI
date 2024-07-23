@@ -115,6 +115,9 @@ house_logos = {
 # 메인화면 이미지
 main_logo = "hogwarts.png"
 
+# 두번째 화면 이미지
+second_logo = "house_hat.png"
+
 def main():
     st.title("다양한 심리 테스트")
 
@@ -149,6 +152,7 @@ def run_harry_potter_test():
     if not st.session_state.test_started:
         st.write("## 호그와트 기숙사 배정 테스트")
         st.write("호그와트 기숙사 배정 모자가 당신의 기숙사를 정해줄 것입니다.")
+        st.image(second_logo, width=600)
         if st.button("테스트 시작하기"):
             st.session_state.test_started = True
             st.session_state.current_question = 0
