@@ -1,4 +1,4 @@
-pip install streamlit opencv-python numpy tensorflow matplotlib pillow
+!pip install streamlit opencv-python numpy tensorflow matplotlib pillow
 
 import streamlit as st
 import os
