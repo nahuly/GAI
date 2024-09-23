@@ -24,7 +24,7 @@ questions = {
     # "어떤 색상의 정령을 선호하시나요?": ["#F5F1EB", "#8F735E"]
 }
 
-print(data)
+print(questions)
 
 # # 사용자 응답 저장
 # responses = {}
