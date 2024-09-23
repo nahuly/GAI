@@ -4,9 +4,9 @@ import pandas as pd
 # 데이터 로드
 @st.cache_data
 def load_data():
-    file_path = 'ever.csv'
-    spirits_data = pd.read_csv(file_path)
-    spirits_data_cleaned = spirits_data.set_index('이름').T
+    file_path = 'ebeosoul-jeongryeong.csv'
+    spirits_data = pd.read_csv(file_path, encoding='utf-8')
+    spirits_data_cleaned = spirits_data.dropna().set_index('이름').T
     return spirits_data_cleaned
 
 data = load_data()
@@ -16,11 +16,11 @@ st.title("당신의 최애 정령 찾기")
 
 # 질문 및 선택지 설정
 questions = {
-    "당신이 선호하는 신장은?": ["155cm", "167cm"],
-    "어떤 취미를 가진 정령을 좋아하시나요?": ["고양이 관찰", "보석 관리"],
-    "어떤 특기를 가진 정령을 선호하시나요?": ["데이터 분석", "정보 수집"],
-    "정령이 좋아하는 것 중 당신의 취향과 맞는 것은?": ["케이크", "꽃"],
-    "어떤 색상의 정령을 선호하시나요?": ["#F5F1EB", "#8F735E"]
+    "당신이 선호하는 신장은?": data.loc['신장'].unique().tolist(),
+    "어떤 취미를 가진 정령을 좋아하시나요?": data.loc['취미'].unique().tolist(),
+    "어떤 특기를 가진 정령을 선호하시나요?": data.loc['특기'].unique().tolist(),
+    "정령이 좋아하는 것 중 당신의 취향과 맞는 것은?": data.loc['좋아하는 것'].unique().tolist(),
+    "어떤 색상의 정령을 선호하시나요?": data.loc['캐릭터 색상'].unique().tolist()
 }
 
 # 사용자 응답 저장
