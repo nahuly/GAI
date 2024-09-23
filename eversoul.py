@@ -4,9 +4,11 @@ import pandas as pd
 # 데이터 로드
 @st.cache_data
 def load_data():
-    file_path = 'ever.csv'
+    file_path = 'ebeosoul-jeongryeong.csv'
     spirits_data = pd.read_csv(file_path)
-    return spirits_data
+    spirits_data_cleaned = spirits_data.dropna().T
+    spirits_data_cleaned.columns = spirits_data_cleaned.iloc[0]
+    return spirits_data_cleaned.drop(spirits_data_cleaned.index[0])
 
 data = load_data()
 
