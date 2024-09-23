@@ -27,7 +27,7 @@ questions = {
 
 st.write(data)
 st.write(data['name'])
-st.write(data['소속'])
+st.write(data['소속'].unique().to_list())
 
 # 사용자 응답 저장
 responses = {}
