@@ -47,7 +47,7 @@ if st.button("결과 보기"):
             if question == "당신이 선호하는 신장은?":
                 if response == data.loc[data['name'] == spirit, '신장'].values[0]:
                     scores[spirit] += 1
-                    print(scores)
+                    st.write(scores)
             elif question == "어떤 취미를 가진 정령을 좋아하시나요?":
                 if response == data.loc[data['name'] == spirit, '취미'].values[0]:
                     scores[spirit] += 1
@@ -65,12 +65,12 @@ if st.button("결과 보기"):
 # 점수에 따라 정령 정렬
 # ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 
-# 결과 표시
-st.subheader("당신의 최애 정령 순위:")
-for rank, (spirit, score) in enumerate(ranked_spirits[:3], 1):
-    st.write(f"{rank}위: {spirit}")
-    st.write(f"소속: {data.loc[data['name'] == spirit, '소속'].values[0]}")
-    st.write(f"특기: {data.loc[data['name'] == spirit, '특기'].values[0]}")
-    st.write(f"취미: {data.loc[data['name'] == spirit, '취미'].values[0]}")
-    st.write("---")
+# # 결과 표시
+# st.subheader("당신의 최애 정령 순위:")
+# for rank, (spirit, score) in enumerate(ranked_spirits[:3], 1):
+#     st.write(f"{rank}위: {spirit}")
+#     st.write(f"소속: {data.loc[data['name'] == spirit, '소속'].values[0]}")
+#     st.write(f"특기: {data.loc[data['name'] == spirit, '특기'].values[0]}")
+#     st.write(f"취미: {data.loc[data['name'] == spirit, '취미'].values[0]}")
+#     st.write("---")
 
