@@ -6,9 +6,10 @@ import pandas as pd
 def load_data():
     file_path = 'ever.csv'
     spirits_data = pd.read_csv(file_path)
-    spirits_data_cleaned = spirits_data.dropna().T
-    spirits_data_cleaned.columns = spirits_data_cleaned.iloc[0]
-    return spirits_data_cleaned.drop(spirits_data_cleaned.index[0])
+    # spirits_data_cleaned = spirits_data.dropna().T
+    # spirits_data_cleaned.columns = spirits_data_cleaned.iloc[0]
+    # return spirits_data_cleaned.drop(spirits_data_cleaned.index[0])
+    return spirits_data
 
 data = load_data()
 
