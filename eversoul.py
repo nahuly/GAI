@@ -4,7 +4,7 @@ import pandas as pd
 # 데이터 로드
 @st.cache_data
 def load_data():
-    file_path = 'ebeosoul-jeongryeong.csv'
+    file_path = 'ever.csv'
     spirits_data = pd.read_csv(file_path)
     spirits_data_cleaned = spirits_data.dropna().T
     spirits_data_cleaned.columns = spirits_data_cleaned.iloc[0]
