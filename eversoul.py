@@ -69,5 +69,5 @@ for rank, (spirit, score) in enumerate(ranked_spirits[:3], 1):
     st.write(f"소속: {data.loc[data['name'] == spirit, '소속'].values[0]}")
     st.write(f"특기: {data.loc[data['name'] == spirit, '특기'].values[0]}")
     st.write(f"취미: {data.loc[data['name'] == spirit, '취미'].values[0]}")
-        st.write("---")
+    st.write("---")
 
