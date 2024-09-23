@@ -27,7 +27,7 @@ questions = {
 
 st.write(data)
 st.write(data['name'])
-st.write(data['height'])
+st.write(data['team'])
 
 # 사용자 응답 저장
 responses = {}
