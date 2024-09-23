@@ -28,6 +28,7 @@ questions = {
 st.write(data)
 st.write(data['name'])
 st.write(data['소속'].unique().tolist())
+st.write(data.loc[data['name'] == '제이드', '신장'].values[0])
 
 # 사용자 응답 저장
 responses = {}
