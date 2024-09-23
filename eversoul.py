@@ -27,7 +27,7 @@ questions = {
 
 st.write(data)
 st.write(data['name'])
-st.write(data.loc['height'].unique())
+st.write(data['height'])
 
 # 사용자 응답 저장
 responses = {}
