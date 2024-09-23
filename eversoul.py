@@ -55,8 +55,9 @@ if st.button("결과 보기"):
             #     if response.lower() == data.loc[data['이름'] == spirit, '캐릭터 색상'].values[0].lower():
             #         scores[spirit] += 1
     
-#     # 점수에 따라 정령 정렬
-#     ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    # 점수에 따라 정령 정렬
+    ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+st.write(data)
     
 #     # 결과 표시
 #     st.subheader("당신의 최애 정령 순위:")
