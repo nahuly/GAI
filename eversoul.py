@@ -26,7 +26,7 @@ questions = {
 }
 
 st.write(data)
-st.write(data['이름'])
+st.write(data['name'])
 
 # # 사용자 응답 저장
 # responses = {}
