@@ -47,7 +47,6 @@ if st.button("결과 보기"):
             if question == "당신이 선호하는 신장은?":
                 if response == data.loc[data['name'] == spirit, '신장'].values[0]:
                     scores[spirit] += 1
-                    st.write(scores)
             elif question == "어떤 취미를 가진 정령을 좋아하시나요?":
                 if response == data.loc[data['name'] == spirit, '취미'].values[0]:
                     scores[spirit] += 1
@@ -60,7 +59,8 @@ if st.button("결과 보기"):
             elif question == "어떤 색상의 정령을 선호하시나요?":
                 if response.lower() == data.loc[data['name'] == spirit, '캐릭터 색상'].values[0].lower():
                     scores[spirit] += 1
-
+                    
+st.write(scores)
     
 # 점수에 따라 정령 정렬
 # ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
