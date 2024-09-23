@@ -13,7 +13,7 @@ def load_data():
 
 data = load_data()
 
-def main():
+def eversoul():
     # 웹사이트 제목
     st.title("당신의 최애 정령 찾기")
     
@@ -66,8 +66,8 @@ def main():
     st.experimental_rerun
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__eversoul__":
+    eversoul()
     
     # # 점수에 따라 정령 정렬
     # ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
