@@ -33,27 +33,27 @@ for question, options in questions.items():
     response = st.selectbox(question, options)
     responses[question] = response
 
-# # 결과 계산 버튼
-# if st.button("결과 보기"):
-#     scores = {spirit: 0 for spirit in data['이름']}
+# 결과 계산 버튼
+if st.button("결과 보기"):
+    scores = {spirit: 0 for spirit in data['이름']}
     
-#     for question, response in responses.items():
-#         for spirit in data['이름']:
-#             if question == "당신이 선호하는 신장은?":
-#                 if response == data.loc[data['이름'] == spirit, '신장'].values[0]:
-#                     scores[spirit] += 1
-#             # elif question == "어떤 취미를 가진 정령을 좋아하시나요?":
-#             #     if response == data.loc[data['이름'] == spirit, '취미'].values[0]:
-#             #         scores[spirit] += 1
-#             # elif question == "어떤 특기를 가진 정령을 선호하시나요?":
-#             #     if response == data.loc[data['이름'] == spirit, '특기'].values[0]:
-#             #         scores[spirit] += 1
-#             # elif question == "정령이 좋아하는 것 중 당신의 취향과 맞는 것은?":
-#             #     if response == data.loc[data['이름'] == spirit, '좋아하는 것'].values[0]:
-#             #         scores[spirit] += 1
-#             # elif question == "어떤 색상의 정령을 선호하시나요?":
-#             #     if response.lower() == data.loc[data['이름'] == spirit, '캐릭터 색상'].values[0].lower():
-#             #         scores[spirit] += 1
+    for question, response in responses.items():
+        for spirit in data['이름']:
+            if question == "당신이 선호하는 신장은?":
+                if response == data.loc[data['이름'] == spirit, '신장'].values[0]:
+                    scores[spirit] += 1
+            # elif question == "어떤 취미를 가진 정령을 좋아하시나요?":
+            #     if response == data.loc[data['이름'] == spirit, '취미'].values[0]:
+            #         scores[spirit] += 1
+            # elif question == "어떤 특기를 가진 정령을 선호하시나요?":
+            #     if response == data.loc[data['이름'] == spirit, '특기'].values[0]:
+            #         scores[spirit] += 1
+            # elif question == "정령이 좋아하는 것 중 당신의 취향과 맞는 것은?":
+            #     if response == data.loc[data['이름'] == spirit, '좋아하는 것'].values[0]:
+            #         scores[spirit] += 1
+            # elif question == "어떤 색상의 정령을 선호하시나요?":
+            #     if response.lower() == data.loc[data['이름'] == spirit, '캐릭터 색상'].values[0].lower():
+            #         scores[spirit] += 1
     
 #     # 점수에 따라 정령 정렬
 #     ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
