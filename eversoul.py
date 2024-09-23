@@ -58,6 +58,7 @@ if st.button("결과 보기"):
     # 점수에 따라 정령 정렬
     ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
 st.write(data)
+st.write(ranked_spirits)
     
 #     # 결과 표시
 #     st.subheader("당신의 최애 정령 순위:")
