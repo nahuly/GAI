@@ -47,6 +47,7 @@ if st.button("결과 보기"):
             if question == "당신이 선호하는 신장은?":
                 if response == data.loc[data['name'] == spirit, '신장'].values[0]:
                     scores[spirit] += 1
+                    print(scores)
             elif question == "어떤 취미를 가진 정령을 좋아하시나요?":
                 if response == data.loc[data['name'] == spirit, '취미'].values[0]:
                     scores[spirit] += 1
