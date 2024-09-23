@@ -24,15 +24,14 @@ questions = {
     # "어떤 색상의 정령을 선호하시나요?": ["#F5F1EB", "#8F735E"]
 }
 
-print(questions)
 
-# # 사용자 응답 저장
-# responses = {}
+# 사용자 응답 저장
+responses = {}
 
-# # 질문 표시 및 응답 수집
-# for question, options in questions.items():
-#     response = st.selectbox(question, options)
-#     responses[question] = response
+# 질문 표시 및 응답 수집
+for question, options in questions.items():
+    response = st.selectbox(question, options)
+    responses[question] = response
 
 # # 결과 계산 버튼
 # if st.button("결과 보기"):
