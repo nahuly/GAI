@@ -25,10 +25,10 @@ questions = {
     "어떤 색상의 정령을 선호하시나요?": data['캐릭터 색상'].unique().tolist()
 }
 
-st.write(data)
-st.write(data['name'])
-st.write(data['소속'].unique().tolist())
-st.write(data.loc[data['name'] == '제이드', '신장'].values[0])
+# st.write(data)
+# st.write(data['name'])
+# st.write(data['소속'].unique().tolist())
+# st.write(data.loc[data['name'] == '제이드', '신장'].values[0])
 
 # 사용자 응답 저장
 responses = {}
@@ -60,11 +60,11 @@ if st.button("결과 보기"):
                 if response.lower() == data.loc[data['name'] == spirit, '캐릭터 색상'].values[0].lower():
                     scores[spirit] += 1
                     
-    st.write(scores)
+    # st.write(scores)
     
     # 점수에 따라 정령 정렬
     ranked_spirits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    st.write(ranked_spirits)
+    # st.write(ranked_spirits)
 
     # 결과 표시
     st.subheader("당신의 최애 정령 순위:")
